@@ -196,16 +196,46 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChangeSalarysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311832381_IdentitalModel.cs" />
+    <Compile Include="Migrations\201807311832381_IdentitalModel.Designer.cs">
+      <DependentUpon>201807311832381_IdentitalModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807311925393_AddDateForChangeSalary.cs" />
+    <Compile Include="Migrations\201807311925393_AddDateForChangeSalary.Designer.cs">
+      <DependentUpon>201807311925393_AddDateForChangeSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312008143_UnWantedForeignKey.cs" />
+    <Compile Include="Migrations\201807312008143_UnWantedForeignKey.Designer.cs">
+      <DependentUpon>201807312008143_UnWantedForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312017003_AddConstraintCanNull.cs" />
+    <Compile Include="Migrations\201807312017003_AddConstraintCanNull.Designer.cs">
+      <DependentUpon>201807312017003_AddConstraintCanNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312017534_DropContraint.cs" />
+    <Compile Include="Migrations\201807312017534_DropContraint.Designer.cs">
+      <DependentUpon>201807312017534_DropContraint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312021141_addcontraint.cs" />
+    <Compile Include="Migrations\201807312021141_addcontraint.Designer.cs">
+      <DependentUpon>201807312021141_addcontraint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChangeSalary.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\WorkerFormSalaryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -266,6 +296,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Workers\Index.cshtml" />
+    <Content Include="Views\Workers\Details.cshtml" />
+    <Content Include="Views\Workers\New.cshtml" />
+    <Content Include="Views\ChangeSalarys\ChangeSalary.cshtml" />
+    <Content Include="Views\Workers\ViewDelete.cshtml" />
+    <Content Include="Views\Workers\Seach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +318,26 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807311832381_IdentitalModel.resx">
+      <DependentUpon>201807311832381_IdentitalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311925393_AddDateForChangeSalary.resx">
+      <DependentUpon>201807311925393_AddDateForChangeSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312008143_UnWantedForeignKey.resx">
+      <DependentUpon>201807312008143_UnWantedForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312017003_AddConstraintCanNull.resx">
+      <DependentUpon>201807312017003_AddConstraintCanNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312017534_DropContraint.resx">
+      <DependentUpon>201807312017534_DropContraint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312021141_addcontraint.resx">
+      <DependentUpon>201807312021141_addcontraint.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

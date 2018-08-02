@@ -1,0 +1,47 @@
+﻿@model Worker_Assignment.ViewModel.WorkerFormSalaryViewModel
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Worker</h2>
+
+@Html.ActionLink("New Worker", "New", "Workers", new { @class = "btn btn-danger" })
+<br />
+@if (Model.Workers.Count() != 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var worker in @Model.Workers)
+        {
+            <tr>
+                <td>@Html.ActionLink(worker.Name, "Details", "Workers", new {id = worker.Id}, null)</td>
+                <td>@worker.Salary</td>
+                <td>@worker.Location</td>
+                <td>@Html.ActionLink("Delete", "ViewDelete", "Workers", new {id = worker.Id}, null) | @Html.ActionLink("Edit", "Edit", "Workers", new {id = worker.Id}, null) | @Html.ActionLink("Up or Down Salary", "ChangeSalary", "ChangeSalarys", new {id = worker.Id}, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    @:Don't have any worker here!
+}
+@using (Html.BeginForm("Seach", "Workers"))
+   {
+       <div class="form-group">
+           @Html.TextBoxFor(c=>c.Input, new { @class = "form-control" })
+       </div>
+       <p> </p>
+       <button type="submit" class="btn-danger btn">Seach</button>
+   }

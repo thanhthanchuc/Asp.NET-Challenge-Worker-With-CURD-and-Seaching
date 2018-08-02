@@ -20,6 +20,9 @@ namespace Worker_Assignment.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Worker> Workers { get; set; }
+        public DbSet<ChangeSalary> ChangeSalaries { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

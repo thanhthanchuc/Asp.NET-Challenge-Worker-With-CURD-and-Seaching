@@ -1,0 +1,25 @@
+﻿@model Worker_Assignment.ViewModel.WorkerFormSalaryViewModel
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Worker</h2>
+@using (Html.BeginForm("Save", "Workers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.Name)
+        @Html.TextBoxFor(m => m.Worker.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.Salary)
+        @Html.TextBoxFor(m => m.Worker.Salary, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.Location)
+        @Html.TextBoxFor(m => m.Worker.Location, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m=>m.Worker.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

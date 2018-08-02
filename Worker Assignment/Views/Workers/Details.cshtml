@@ -1,0 +1,54 @@
+﻿@model Worker_Assignment.ViewModel.WorkerFormSalaryViewModel
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Worker.Name</h2>
+<ul>
+    <li>Name: @Model.Worker.Name</li>
+    <li>Salary: @Model.Worker.Salary</li>
+    <li>Location: @Model.Worker.Location</li>
+</ul>
+@if (!@Model.ChangeSalaries.Any())
+{
+<ul>
+    <li>Change Salary history: This worker haven't been changed salary before!</li>
+</ul>
+}
+else
+{
+    <li>Change Salary history:</li>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Changed Salary</td>
+            <td>Changed Time</td>
+            <td>Changed Status</td>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var salary in @Model.ChangeSalaries)
+            {
+                <tr>
+                    <td>@salary.UporDownSalary</td>
+                    <td>
+                        @if (salary.DateChanged != null)
+                        {
+                            @salary.DateChanged.Value.ToShortDateString()
+                        }
+                    </td>
+                    @if (salary.Status)
+                    {
+                        <td>Up</td>
+                    }
+                    else
+                    {
+                        <td>Down</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
